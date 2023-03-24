@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "AllAnimalTableViewCell", bundle: nil) , forCellReuseIdentifier: "ALL_ANIMAL")
         
         tableView.dataSource = self
+        tableView.delegate = self
         
         // Step 3: Authenticate
         getAnimal()
@@ -142,7 +143,7 @@ extension ViewController: UITableViewDataSource {
         }
     }
     
-    private func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    internal func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let newSection = self.newsSections[section]
         switch newSection{
         case .featured:
@@ -157,10 +158,36 @@ extension ViewController: UITableViewDataSource {
             ])
             label.font = UIFont.preferredFont(forTextStyle: .headline)
             label.textColor = .black
-            label.text = "BERITA NOW SOB"
+            label.text = "ANIMAL FEATURED"
             return animalsFeatured.count > 0 ? view : nil
-        default:
-            return nil
+        case .listRight:
+            let view = UIView(frame: .zero)
+            let label = UILabel(frame: .zero)
+            view.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
+            ])
+            label.font = UIFont.preferredFont(forTextStyle: .headline)
+            label.textColor = .black
+            label.text = "ANIMAL LIST"
+            return animalsRight.count > 0 ? view : nil
+        case .listDown:
+            let view = UIView(frame: .zero)
+            let label = UILabel(frame: .zero)
+            view.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
+            ])
+            label.font = UIFont.preferredFont(forTextStyle: .headline)
+            label.textColor = .black
+            label.text = "ANIMAL LIST"
+            return animals.count > 0 ? view : nil
         }
     }
 }
@@ -193,10 +220,32 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
         return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = UIScreen.main.bounds.width
-        return CGSize(width: width, height: 250)
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width = UIScreen.main.bounds.width
+//        return CGSize(width: width, height: 250)
+//    }
+}
+
+
+extension ViewController : UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let newSection = self.newsSections[section]
+        switch newSection{
+        case .featured:
+            return 40
+        case .listRight:
+            return 40
+        case .listDown:
+            return 40
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.0001
     }
 }
+
+
+
+
 
 
