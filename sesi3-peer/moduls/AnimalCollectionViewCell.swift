@@ -8,5 +8,8 @@
 import UIKit
 
 class AnimalCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var subtitlecoll: UILabel!
+    @IBOutlet weak var titlecoll: UILabel!
+    @IBOutlet weak var imgcoll: UIImageView!
     
 }

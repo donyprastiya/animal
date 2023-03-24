@@ -1,0 +1,22 @@
+PODS:
+  - Contentful (5.5.7):
+    - Contentful/ImageOptions (= 5.5.7)
+  - Contentful/ImageOptions (5.5.7)
+  - Kingfisher (4.10.1)
+
+DEPENDENCIES:
+  - Contentful
+  - Kingfisher
+
+SPEC REPOS:
+  trunk:
+    - Contentful
+    - Kingfisher
+
+SPEC CHECKSUMS:
+  Contentful: 65ba623bca2d08d86db886a84ddc7674d9141f92
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+
+PODFILE CHECKSUM: d33fb94a18bffa3cfe131d4a7d4fa04e390d6dfc
+
+COCOAPODS: 1.11.3

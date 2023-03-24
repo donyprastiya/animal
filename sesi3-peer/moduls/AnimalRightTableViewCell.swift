@@ -8,7 +8,8 @@
 import UIKit
 
 class AnimalRightTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var collection: UICollectionView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
