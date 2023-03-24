@@ -6,14 +6,14 @@
 //
 
 import UIKit
+import Contentful
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Step 3: Authenticate
+        
     }
-
-
 }
-
