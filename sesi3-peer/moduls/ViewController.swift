@@ -108,7 +108,7 @@ extension ViewController: UITableViewDataSource {
         case .featured:
             return animalsFeatured.count
         case .listRight:
-            return animalsRight.count
+            return 1
         case .listDown:
             return animals.count
         }
@@ -205,6 +205,11 @@ extension ViewController: UICollectionViewDataSource{
         cell.imgcoll.kf.setImage(with: URL(string: animal.imgUrl ?? ""))
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = UIScreen.main.bounds.width
+        return CGSize(width: width, height: 300)
+    }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout{
@@ -222,7 +227,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
 
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let width = UIScreen.main.bounds.width
-//        return CGSize(width: width, height: 250)
+//        return CGSize(width: width, height: 300)
 //    }
 }
 
